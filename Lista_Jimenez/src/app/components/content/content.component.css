@@ -1,0 +1,29 @@
+#content {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+  }
+
+  
+.card{
+  margin-bottom: 20px;
+  height: 350px;
+}
+
+  img{
+    width: 100%;
+    height: 120px;
+  }
+
+  .materias{
+    font-size: 11px;
+  }
+
+.alumnosDeMayorEdad{
+  border: 1px solid red;
+}
+
+.MayoresMaterias{
+  border: 1px dashed green;
+  font-style: italic;
+}

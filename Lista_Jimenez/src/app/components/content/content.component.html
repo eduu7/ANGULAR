@@ -1,0 +1,51 @@
+<div id="content">
+    <app-toolbar></app-toolbar>
+</div>
+  <div class="container-fluid">
+    <!-- <h1>Simple Sidebar</h1> -->
+    <div class="col-lg-12" >
+            <div *ngFor="let item of AlumnosList">
+                <div  *ngIf="item.isEnabled" class="col-lg-3 card"  >
+                    <div [ngClass]="item.age>=23? 'alumnosDeMayorEdad':''">
+                        <img src="https://th.bing.com/th/id/R.dc8b1732c919ca17845aab44dc3afb27?rik=qOkrlNPk9Y4cBg&pid=ImgRaw&r=0" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="col-lg-12" style="text-align:center">                     
+                                <h5 class="card-title">{{item.name}} {{item.last_name}}</h5>
+                                <div class="col-lg-6">
+                                    <h5>{{item.birthdate | date: 'dd/mm/yyyy'}}</h5>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 >{{item.age}} años</h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-12"  style="text-align:center">
+                                <p>{{item.address}}</p>
+                                <h4 style="text-align: center">Materias</h4>
+                            </div>
+                            <div class="col-lg-12 materias" *ngFor="let s of item.subjects">
+                                <div class="col-lg-12" [ngClass]="item.subjects.length>=4?'MayoresMaterias':''"  style="text-align:center">
+                                    {{s.code}} - {{s.name}}
+                                </div>
+                              </div>
+                         
+                          
+                          <!-- <table border="1">
+                            <thead>
+                                <th width="100%">Codigo</th>
+                                <th width="100%">Nombre</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of item.subjects">
+                                    <td>{{s.code}}</td>
+                                    <td>{{s.name}}</td>
+                                </tr>
+                            </tbody>
+                          </table> -->
+                        </div>
+                    </div>
+                   
+                  </div>
+            </div>
+          
+    </div>
+  </div>
