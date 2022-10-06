@@ -1,0 +1,77 @@
+<div class="wrapper rounded " style="background-color: rgb(232, 236, 236);">
+
+    <div class="h3">Formulario de registro</div>
+<form action="" [formGroup]="formAlumno" (ngSubmit)="agregarAlumno()">
+
+    <div class="form" >
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3 dv">
+                <label>Nombres</label>
+                <input type="text" minlength="2" formControlName="nombres" class="form-control" required>
+                <p class="error" *ngIf="formAlumno.get('nombres')?.touched && formAlumno.get('nombres')?.errors?.['required']">Este campo es requerido</p>    
+                <p class="error" *ngIf="formAlumno.get('nombres')?.touched && formAlumno.get('nombres')?.errors?.['minlength']">El nombre no puede tener menos de 2 caracteres</p> 
+                <p class="error" *ngIf="formAlumno.get('nombres')?.touched && formAlumno.get('nombres')?.errors?.['maxlength']">El nombre no puede tener mas de 50 caracteres</p>    
+                               
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3 dv">
+                <label>Apellidos</label>
+                <input type="text" formControlName="apellidos" class="form-control" required>
+                <p class="error" *ngIf="formAlumno.get('apellidos')?.touched && formAlumno.get('apellidos')?.errors?.['required']">Este campo es requerido</p>                
+                <p class="error" *ngIf="formAlumno.get('apellidos')?.touched && formAlumno.get('apellidos')?.errors?.['maxlength']">El Apellido no puede tener mas de 50 caracteres</p>    
+                <p class="error" *ngIf="formAlumno.get('apellidos')?.touched && formAlumno.get('apellidos')?.errors?.['minlength']">El Apellido no puede tener menos de 2 caracteres</p>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3 dv">
+                <label>Fecha Nacimiento</label>
+                <input type="date" formControlName="fecha_nacimiento" class="form-control" required>
+                <p class="error" *ngIf="formAlumno.get('fecha_nacimiento')?.touched && formAlumno.get('fecha_nacimiento')?.errors?.['required']">Este campo es requerido</p>                
+                <p class="error" *ngIf="formAlumno.get('fecha_nacimiento')?.touched && fechaMayorIgualActual==true">La fecha no puede ser mayor o igual a la actual</p>                
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3 dv">
+                <label>Genero</label>
+                <div class="d-flex align-items-center mt-2">
+                    <label class="option" style="display: inline;">
+                        <input type="radio" checked name="radio">Hombre
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="option ms-4" style="display: inline;">
+                        <input type="radio" name="radio">Mujer
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3 dv">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="correo" required>
+                <p class="error" *ngIf="formAlumno.get('correo')?.touched && formAlumno.get('correo')?.errors?.['required']">Este campo es requerido</p>
+                <p class="error" *ngIf="formAlumno.get('correo')?.touched && formAlumno.get('correo')?.errors?.['pattern']">Correo invalido</p>                
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3 dv">
+                <label>Telefono</label>
+                <input type="tel" class="form-control" formControlName="telefono" required>
+                <p class="error" *ngIf="formAlumno.get('telefono')?.touched && formAlumno.get('telefono')?.errors?.['required']">Este campo es requerido</p>                
+                <p class="error" *ngIf="formAlumno.get('telefono')?.touched && formAlumno.get('telefono')?.errors?.['pattern']">Numero invalido. El telefono debe contener la lada ej. +52</p>   
+                               
+            </div>
+        </div>
+        <div class=" my-md-2 my-3 dv">
+            <label>Curso elegida</label>
+            <select id="sub" required formControlName="curso">
+                <option value="" selected hidden>Seleccionar opcion</option>
+                <option value="Historia">Historia</option>
+                <option value="Python">Python</option>
+                <option value="Bases de datos">Bases de datos</option>
+                <option value="Ingles">Ingles</option>
+            </select>
+            <p class="error" *ngIf="formAlumno.get('curso')?.touched && formAlumno.get('curso')?.errors?.['required']">Este campo es requerido</p>                
+        </div>
+        <p class="error"></p>
+        <button type="submit" class="btn btn-primary send" [disabled]="formAlumno.invalid">Agregar alumno</button>
+    </div>
+</form>
+   
+
+</div>
