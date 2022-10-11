@@ -3,7 +3,10 @@
   <p>Estas seguro de eliminar a {{student_name}} ?</p>
   
 </div>
-<div mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button   cdkFocusInitial mat-raised-button color="primary">Si</button>
-</div>
+<form (ngSubmit)="deleteStudent()">
+  <div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button" (click)="closemodal()">Cancelar</button>
+    <button mat-button  type="submit" cdkFocusInitial mat-raised-button color="primary">Si</button>
+  </div>
+
+</form>

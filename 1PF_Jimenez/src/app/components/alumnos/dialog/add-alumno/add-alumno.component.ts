@@ -62,7 +62,7 @@ export class AddAlumnoComponent implements OnInit {
   }
 
   agregarAlumno(){
-     
+     console.log("agregar Alunno");
     var fechaN= this.formAlumno.value.fecha_nacimiento;
   
     console.log(fechaN);
@@ -76,10 +76,21 @@ export class AddAlumnoComponent implements OnInit {
       var dtClose={
         ...this.formAlumno.value,
         id:this._idEdit,
-        action:this._action
+        action:this._action,
+        skipAction:0
       }
       this.dialogRef.close(dtClose);
      }
+  }
+
+  closemodal(){
+    var dtClose={
+      ...this.formAlumno.value,
+      id:this._idEdit,
+      action:this._action,
+      skipAction:1
+    }
+    this.dialogRef.close(dtClose);
   }
 
   padTo2Digits(num: number) {

@@ -24,8 +24,20 @@ export class DeleteAlumnoComponent implements OnInit {
   }
 
   deleteStudent(){
-    this.dialogRef.close(this.data);
+    console.log("this.close");
+    var dtSend={
+      ...this.data,
+      skipAction:0
+    }
+    this.dialogRef.close(dtSend);
   }
 
+  closemodal(){
+    var dtSend={
+      ...this.data,
+      skipAction:1
+    }
+    this.dialogRef.close(dtSend);
+  }
 
 }

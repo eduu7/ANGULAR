@@ -45,38 +45,41 @@ export class AlumnosComponent implements OnInit, AfterViewInit {
     });
 
     dialog.beforeClosed().subscribe(res => {
-      console.log("data edit");
-      console.log(res);
+      if(res.skipAction==0){
+        console.log("Edit modal closed");
+        console.log(res);
+       
+        // console.log("object parsed")
+        // console.log(objParsed);
+        if(res.action==2){
+          var dt= this.dataInicial.find(x=>x.id==res.id);
+          dt!.name=res.nombres;
+          dt!.last_name=res.apellidos;
+          dt!.country=res.pais;
+          dt!.email=res.correo;
+          dt!.gender=res.genero;
+          dt!.birth_date=res.fecha_nacimiento;
+          dt!.phone=res.telefono;
+          
+        }
+        else{
+          var objParsed= {
+            id:Math.floor(Date.now() / 1000),
+            name:res.nombres,
+            last_name:res.apellidos,
+            gender:res.genero,
+            country:res.pais,
+            phone:res.telefono,
+            email:res.correo,
+            birth_date:res.fecha_nacimiento
+          };
+  
+          this.dataInicial.push(objParsed);
+        }
+      
+        this.AlumnosDataSource.data = this.dataInicial
+      }
      
-      // console.log("object parsed")
-      // console.log(objParsed);
-      if(res.action==2){
-        var dt= this.dataInicial.find(x=>x.id==res.id);
-        dt!.name=res.nombres;
-        dt!.last_name=res.apellidos;
-        dt!.country=res.pais;
-        dt!.email=res.correo;
-        dt!.gender=res.genero;
-        dt!.birth_date=res.fecha_nacimiento;
-        dt!.phone=res.telefono;
-        
-      }
-      else{
-        var objParsed= {
-          id:this.dataInicial.length+1,
-          name:res.nombres,
-          last_name:res.apellidos,
-          gender:res.genero,
-          country:res.pais,
-          phone:res.telefono,
-          email:res.correo,
-          birth_date:res.fecha_nacimiento
-        };
-
-        this.dataInicial.push(objParsed);
-      }
-    
-      this.AlumnosDataSource.data = this.dataInicial
     })
   }
 
@@ -90,7 +93,12 @@ export class AlumnosComponent implements OnInit, AfterViewInit {
     });
 
     dialog.beforeClosed().subscribe(res => {
-      console.log(res);
+      if(res.skipAction==0){
+        console.log(res);
+        let position = this.dataInicial.findIndex(persona => persona.id == res.id)
+        this.dataInicial.splice(position, 1);
+        this.AlumnosDataSource.data = this.dataInicial;
+     }
       
     })
 
