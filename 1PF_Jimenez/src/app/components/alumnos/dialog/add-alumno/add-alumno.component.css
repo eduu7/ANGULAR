@@ -1,0 +1,9 @@
+.mat-form-field{
+    display: block;
+}
+
+.error{
+    color: red;
+    font-size: 13px;
+    margin-bottom: 0px;
+  }
