@@ -1,0 +1,93 @@
+
+<div id="content">
+    <!-- <app-toolbar></app-toolbar> -->
+  </div>
+  <div class="container-fluid">
+    <h1>Editar Alumno</h1>
+    <form [formGroup]="formAlumno" (ngSubmit)="EditarAlumno()"> 
+    <div mat-dialog-content>
+      
+        <div class="row">   
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput  formControlName="nombres" placeholder="Ingrese un nombre">
+                    <p class="error" *ngIf="formAlumno.get('nombres')?.touched && formAlumno.get('nombres')?.errors?.['required']">Este campo es requerido</p>    
+                    <p class="error" *ngIf="formAlumno.get('nombres')?.touched && formAlumno.get('nombres')?.errors?.['minlength']">El nombre no puede tener menos de 2 caracteres</p> 
+                    <p class="error" *ngIf="formAlumno.get('nombres')?.touched && formAlumno.get('nombres')?.errors?.['maxlength']">El nombre no puede tener mas de 50 caracteres</p>                            
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput  formControlName="apellidos" placeholder="Ingrese los apellido">
+                    <p class="error" *ngIf="formAlumno.get('apellidos')?.touched && formAlumno.get('apellidos')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formAlumno.get('apellidos')?.touched && formAlumno.get('apellidos')?.errors?.['maxlength']">El Apellido no puede tener mas de 50 caracteres</p>    
+                    <p class="error" *ngIf="formAlumno.get('apellidos')?.touched && formAlumno.get('apellidos')?.errors?.['minlength']">El Apellido no puede tener menos de 2 caracteres</p>  
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Correo</mat-label>
+                    <input matInput  formControlName="correo" placeholder="Ingrese un correo">
+                    <p class="error" *ngIf="formAlumno.get('correo')?.touched && formAlumno.get('correo')?.errors?.['required']">Este campo es requerido</p>
+                    <p class="error" *ngIf="formAlumno.get('correo')?.touched && formAlumno.get('correo')?.errors?.['pattern']">Correo invalido</p>                
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput  formControlName="telefono" placeholder="Ingrese un telefono">
+                    <p class="error" *ngIf="formAlumno.get('telefono')?.touched && formAlumno.get('telefono')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formAlumno.get('telefono')?.touched && formAlumno.get('telefono')?.errors?.['pattern']">Numero invalido. El telefono debe contener la lada ej. +52</p>                      
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-lg-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Pais</mat-label>
+                    <mat-select formControlName="pais">
+                        <mat-option value="">Seleccionar pais</mat-option>
+                        <mat-option [value]="'Mexico'">Mexico</mat-option>
+                        <mat-option [value]="'Estados Unidos'">Estados Unidos</mat-option>           
+                        <mat-option [value]="'Argentina'">Argentina</mat-option>            
+                      </mat-select>
+                      <p class="error" *ngIf="formAlumno.get('pais')?.touched&&formAlumno.get('pais')?.errors?.['required']">Este campo es requerido</p>                
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Genero</mat-label>
+                    <mat-select  formControlName="genero" >
+                        <mat-option [value]="1">Hombre</mat-option>
+                        <mat-option [value]="2">Mujer</mat-option>                     
+                      </mat-select>
+                      <p class="error" *ngIf="formAlumno.get('genero')?.touched && formAlumno.get('genero')?.errors?.['required']">Este campo es requerido</p>                
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha nacimiento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento">                
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <p class="error" *ngIf="formAlumno.get('fecha_nacimiento')?.touched && formAlumno.get('fecha_nacimiento')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formAlumno.get('fecha_nacimiento')?.touched && fechaMayorIgualActual==true">La fecha no puede ser mayor o igual a la actual</p>                
+                  </mat-form-field>
+            </div>
+        </div>
+       
+        
+      
+    </div>
+    <div mat-dialog-actions align="end">
+        
+        <button  type="submit" mat-raised-button color="primary" [disabled]="formAlumno.invalid" >Guardar</button>
+      </div>
+    
+    </form>
+  </div>
