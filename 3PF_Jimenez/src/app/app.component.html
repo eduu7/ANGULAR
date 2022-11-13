@@ -1,0 +1,30 @@
+<!-- <div id="viewport"> -->
+  <!-- Sidebar -->
+  
+
+ 
+  
+<!-- </div> -->
+
+
+<div class="wrapper">
+  <div class="section">
+<div class="top_navbar">
+ <div class="hamburger" (click)="toogleClass()" >
+   <a onclick="">
+    <fa-icon  [icon]="faBars"></fa-icon>
+   </a>
+ </div>
+ <h3>{{$titulo | async}}</h3>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+ 
+</div>
+</div>
+<app-sidebar></app-sidebar>
+
+
+</div>
+
+ 
