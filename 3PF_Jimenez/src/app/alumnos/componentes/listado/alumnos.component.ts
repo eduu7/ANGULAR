@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ListaAlumnos } from 'src/app/data/alumnos';
 import { alumno } from 'src/app/models/alumno';
  
 import { BehaviorSubject, filter, from, interval, map, mergeMap, Observable, of } from 'rxjs';

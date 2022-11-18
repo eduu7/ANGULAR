@@ -1,42 +1,43 @@
-<div class="sidebar">
-  <div class="profile">
-      <img  src="https://lh3.googleusercontent.com/-6nX1WyusudU/AAAAAAAAAAI/AAAAAAAAHRE/T6rycb5i8TA/photo.jpg?sz=256" alt="profile_picture">
-      <h3>Edu7</h3>
-      <p>Admin</p>
-  </div>
-  <ul>
-      <li>
-        <!-- active -->
+<ng-container *ngIf="sesion$ | async as sesion">
+  <div *ngIf="sesion.active">
+    <div class="sidebar">
+      <div class="profile">
+          <img  src="https://scontent.fntr10-1.fna.fbcdn.net/v/t1.18169-9/16105968_817182948429817_6842596816952998629_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeG813_Lkn_Dga-3ydDbA53salfG6-MTwt1qV8br4xPC3eIsXZ5B7ooeghaw2rhF-a_zcRQhBzs6YW6fVedm2UfX&_nc_ohc=G6jJ4OZ-_sQAX9JkYKc&_nc_ht=scontent.fntr10-1.fna&oh=00_AfAO08Z_Ef9fgIYBCOSgKza6I0y9xrs__GAhZ9tkYKQccg&oe=639BB89D" alt="profile_picture">
+          <h3>{{sesion.user}}</h3>
+          <!-- <p>{{sesion.user.}}}</p> -->
+      </div>
+      <ul>
+          <li>
+            <!-- active -->
+              <a href="#" class="">
+                <span class="icon"><fa-icon  [icon]="faHome"></fa-icon></span> 
+                  <span class="item">Inicio</span>
+              </a>
+          </li>
+          <li>
+              <a href="#" class="" routerLink="alumnos/listado">
+                <span class="icon"><fa-icon  [icon]="faGraduationCap"></fa-icon></span> 
+                  <span class="item">Alumnos</span>
+              </a>
+          </li>
+          <li>
+            <a href="#" class="" routerLink="cursos/listado">
+              <span class="icon"><fa-icon  [icon]="faBook" ></fa-icon></span> 
+                <span class="item">Cursos</span>
+            </a>
+        </li>
+        <li>
           <a href="#" class="">
-            <span class="icon"><fa-icon  [icon]="faHome"></fa-icon></span> 
-              <span class="item">Inicio</span>
+            <span class="icon"><fa-icon  [icon]="faAddressCard"></fa-icon></span> 
+              <span class="item">Inscripciones</span>
           </a>
       </li>
-      <li>
-          <a href="#" class="" routerLink="alumnos/listado">
-            <span class="icon"><fa-icon  [icon]="faGraduationCap"></fa-icon></span> 
-              <span class="item">Alumnos</span>
-          </a>
-      </li>
-      <li>
-        <a href="#" class="" routerLink="cursos/listado">
-          <span class="icon"><fa-icon  [icon]="faBook" ></fa-icon></span> 
-            <span class="item">Cursos</span>
-        </a>
-    </li>
-    <li>
-      <a href="#" class="">
-        <span class="icon"><fa-icon  [icon]="faAddressCard"></fa-icon></span> 
-          <span class="item">Inscripciones</span>
-      </a>
-  </li>
-  <li>
-    <a href="#" class="" routerLink="cursos/listado">
-      <span class="icon"><fa-icon  [icon]="faUsers" ></fa-icon></span> 
-        <span class="item">Usuarios</span>
-    </a>
-</li>
-  </ul>
-</div>
+       
+      </ul>
+    </div>
+  </div>
 
- 
+  
+   
+</ng-container>
+

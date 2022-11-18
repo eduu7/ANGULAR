@@ -13,7 +13,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatCardModule } from '@angular/material/card';
- 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -38,6 +39,7 @@ import { MatCardModule } from '@angular/material/card';
     MatTooltipModule,
     MatDatepickerModule,
     MatCardModule,
+    MatSlideToggleModule 
   ],
   exports: [
     MatTableModule,
@@ -61,7 +63,8 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatTooltipModule,
     MatDatepickerModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

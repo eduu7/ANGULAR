@@ -11,12 +11,16 @@
 
    
   
-   .container{
-    margin: 30px;
+   .containercust{
+    /* margin: 30px; */
+    margin-top: 0px;
+    /* margin: 30px; */
+    margin-right: 0px;
+    margin-left: 0px;
     background: #fff;
     padding: 25px;
     line-height: 28px;
-    width: calc(100% - 60px) !important;
+    /* width: calc(100% - 60px) !important; */
   }
   
   h3{     
@@ -33,3 +37,5 @@
     margin-left: 0;
     width: 100%;
   } */
+
+ 

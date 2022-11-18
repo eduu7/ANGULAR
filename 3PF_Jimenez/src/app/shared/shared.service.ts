@@ -12,6 +12,7 @@ export class SharedService {
   }
 
   setTitle(title:string){
+    console.log('setTitle' +title)
     this._title.next(title);
     // this.title=title;
   }

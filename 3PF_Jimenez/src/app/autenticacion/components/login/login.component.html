@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="wrapper">
+    <form class="login" [formGroup]="formLogin" (ngSubmit)="login()">
+      <p class="title">Log in</p>
+      <input type="text" placeholder="Username" formControlName="user_name" autofocus/>
+      <i class="fa fa-user"></i>
+      <p class="error" *ngIf="formLogin.get('user_name')?.touched && formLogin.get('user_name')?.errors?.['required']">Este campo es requerido</p>    
+      <p class="error" *ngIf="formLogin.get('user_name')?.touched && formLogin.get('user_name')?.errors?.['minlength']">El nombre no puede tener menos de 2 caracteres</p> 
+      <p class="error" *ngIf="formLogin.get('user_name')?.touched && formLogin.get('user_name')?.errors?.['maxlength']">El nombre no puede tener mas de 50 caracteres</p>                            
+      <input type="password" placeholder="Password"  formContrlName="password"/>
+      <p class="error" *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.errors?.['required']">Este campo es requerido</p>    
+      <p class="error" *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.errors?.['minlength']">El nombre no puede tener menos de 2 caracteres</p> 
+      <p class="error" *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.errors?.['maxlength']">El nombre no puede tener mas de 50 caracteres</p>                            
+      <i class="fa fa-key"></i>
+       
+      <mat-slide-toggle formControlName="isAdmin">Es admin</mat-slide-toggle>
+      <button style="background: steelblue;" type="submit"  >
+        <i class="spinner"></i>
+        <span class="state">Log in</span>
+      </button>
+    </form>
+    
+    
+  </div>

@@ -9,7 +9,7 @@ import { AlumnosComponent } from './componentes/listado/alumnos.component';
  
 
 const routes: Routes = [
-  { path: 'alumnos', component: InicioComponent, children: [
+  { path: '', component: InicioComponent, children: [
     { path: 'listado', component: AlumnosComponent },
     { path: 'agregar', component: AddAlumnoComponent },
     { path: 'editar', component: EditarAlumnoComponent },

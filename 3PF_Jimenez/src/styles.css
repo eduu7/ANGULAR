@@ -2,37 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-/* body {
-  overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-}
-
-  
-.wrapper .section .top_navbar .hamburger a{
-  font-size: 28px;
-  color: #f4fbff;
-}
-
-.wrapper .section .top_navbar .hamburger a:hover{
-  color: #a2ecff;
-}
-
- .wrapper .section .container{
-  margin: 30px;
-  background: #fff;
-  padding: 50px;
-  line-height: 28px;
-}
-
-body.active .wrapper .sidebar{
-  left: -225px;
-}
-
-body.active .wrapper .section{
-  margin-left: 0;
-  width: 100%;
-} */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
@@ -46,9 +15,9 @@ body.active .wrapper .section{
   /* overflow: auto; */
 }
 
-body{
+/* body{
   background: #f5f6fa;
-}
+} */
 
 .wrapper .sidebar{
   background: rgb(5, 68, 104);

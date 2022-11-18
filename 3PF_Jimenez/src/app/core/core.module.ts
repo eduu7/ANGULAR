@@ -5,7 +5,7 @@ import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/p
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SesionService } from './services/sesion.service';
 import { MaterialModule } from '../Modules/material.module';
- 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -15,13 +15,14 @@ import { MaterialModule } from '../Modules/material.module';
     PaginaNoEncontradaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ],
   providers: [
     SesionService
   ],
   exports:[
-    
+    FontAwesomeModule
   ]
 })
 export class CoreModule { }
