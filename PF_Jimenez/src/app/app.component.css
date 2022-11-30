@@ -1,0 +1,41 @@
+/* #viewport {
+    padding-left: 250px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  } */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+   
+  
+   .containercust{
+    /* margin: 30px; */
+    margin-top: 0px;
+    /* margin: 30px; */
+    margin-right: 0px;
+    margin-left: 0px;
+    background: #fff;
+    padding: 25px;
+    line-height: 28px;
+    /* width: calc(100% - 60px) !important; */
+  }
+  
+  h3{     
+    color: white;
+    /* line-height: 34px !important; */
+    margin: 0;
+    margin-left: 10px;
+}
+  /* body.active .wrapper .sidebar{
+    left: -225px;
+  }
+   */
+  /* body.active .wrapper .section{
+    margin-left: 0;
+    width: 100%;
+  } */
+
+ 

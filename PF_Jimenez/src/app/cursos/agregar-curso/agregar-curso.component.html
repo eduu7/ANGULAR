@@ -1,0 +1,82 @@
+
+<div id="content">
+    <!-- <app-toolbar></app-toolbar> -->
+  </div>
+  <div class="container-fluid">
+    <h1>Agregar Curso</h1>
+    <form [formGroup]="formulario"> 
+    <div mat-dialog-content>
+      
+        <div class="row">   
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput  formControlName="nombre" placeholder="Ingrese un nombre">
+                    <!-- <p class="error" *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.errors?.['required']">Este campo es requerido</p>    
+                    <p class="error" *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.errors?.['minlength']">El nombre no puede tener menos de 2 caracteres</p> 
+                    <p class="error" *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.errors?.['maxlength']">El nombre no puede tener mas de 50 caracteres</p>                             -->
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Maestro</mat-label>
+                    <input matInput  formControlName="maestro" placeholder="Ingrese el nombre del maestro">
+                    <p class="error" *ngIf="formulario.get('maestro')?.touched && formulario.get('maestro')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formulario.get('maestro')?.touched && formulario.get('maestro')?.errors?.['maxlength']">El Apellido no puede tener mas de 50 caracteres</p>    
+                    <p class="error" *ngIf="formulario.get('maestro')?.touched && formulario.get('maestro')?.errors?.['minlength']">El Apellido no puede tener menos de 2 caracteres</p>  
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Horas</mat-label>
+                    <input matInput type="number"  formControlName="horas" placeholder="Ingrese la cantidad de horas">
+                    <p class="error" *ngIf="formulario.get('horas')?.touched && formulario.get('horas')?.errors?.['required']">Este campo es requerido</p>
+                    <p class="error" *ngIf="formulario.get('horas')?.touched && formulario.get('horas')?.errors?.['pattern']">Correo invalido</p>                
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>Dificultad</mat-label>
+                    <input matInput type="number" formControlName="dificultad" placeholder="Ingrese la dificultad 1-10">
+                    <p class="error" *ngIf="formulario.get('dificultad')?.touched && formulario.get('dificultad')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formulario.get('dificultad')?.touched && formulario.get('dificultad')?.errors?.['pattern']">Numero invalido. El telefono debe contener la lada ej. +52</p>                      
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">             
+            <div class="col-lg-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha Inicio</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fechaInicio">                
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <p class="error" *ngIf="formulario.get('fechaInicio')?.touched && formulario.get('fechaInicio')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formulario.get('fechaInicio')?.touched ">La fecha no puede ser mayor o igual a la actual</p>                
+                  </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha Fin</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="fechaFin">                
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                    <p class="error" *ngIf="formulario.get('fechaFin')?.touched && formulario.get('fechaFin')?.errors?.['required']">Este campo es requerido</p>                
+                    <p class="error" *ngIf="formulario.get('fechaFin')?.touched ">La fecha no puede ser mayor o igual a la actual</p>                
+                  </mat-form-field>
+            </div>
+        </div>
+       
+        
+      
+    </div>
+    <div mat-dialog-actions align="end">
+        
+        <button  type="submit" mat-raised-button color="primary" [disabled]="formulario.invalid" >Guardar</button>
+      </div>
+    
+    </form>
+  </div>

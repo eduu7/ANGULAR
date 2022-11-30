@@ -1,0 +1,46 @@
+ 
+ 
+    <!-- <h1>Simple Sidebar</h1> -->
+    <div class="row">
+        <!-- div -->
+        <!-- <mat-form-field appearance="standard" class="col-md-6">
+            <mat-label>Filtrar por nombre de alumno</mat-label>
+            <input type="text" matInput  >
+        </mat-form-field> -->
+        <!-- <div class="col-lg-8"></div> -->
+          <div class="col-lg-12" >
+            <button style="float:right; margin-bottom: 15px;" mat-raised-button color="primary" routerLink="../agregar">Agregar Alumno</button>
+          </div>
+   
+     
+    </div>
+    <div class="row">
+      <!-- <p>{{ alumnos$ | async | json }}</p> -->
+      <div *ngFor="let alumno of  alumnos$ | async" class="col-md-3">
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title>{{ alumno.name }}</mat-card-title>
+                <mat-card-subtitle>{{ alumno.last_name }}</mat-card-subtitle>
+            </mat-card-header>
+        
+              <img mat-card-image [src]="alumno.img_url" alt="coderhouse">
+        
+            <mat-card-content>
+                <p>email {{ alumno.email }}</p>
+                
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button color="primary" (click)="editarAlumno(alumno.id)" >
+                  <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteStudent(alumno)" >
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </mat-card-actions>
+        
+            
+        </mat-card>
+        </div>
+    </div>
+ 
