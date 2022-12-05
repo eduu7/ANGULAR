@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.session.obtenerSesion().pipe(
       map((sesion: Session) => {
-        console.log('sessionactive: '+ sesion.active);
+        // console.log('sessionactive: '+ sesion.active);
         if(sesion.active){
           return true;
         }else{

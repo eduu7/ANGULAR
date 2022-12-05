@@ -13,8 +13,8 @@ export class DeleteAlumnoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data?: any
   ) { 
 
-    console.log("inject data");
-    console.log(data);
+    // console.log("inject data");
+    // console.log(data);
     this.student_name=this.data.name;
 
   }
@@ -24,7 +24,7 @@ export class DeleteAlumnoComponent implements OnInit {
   }
 
   deleteStudent(){
-    console.log("this.close");
+    // console.log("this.close");
     var dtSend={
       ...this.data,
       skipAction:0

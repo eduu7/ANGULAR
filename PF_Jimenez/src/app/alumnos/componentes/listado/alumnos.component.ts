@@ -26,17 +26,18 @@ export class AlumnosComponent implements OnInit {
     // private DeleteDialog: MatDialog
   ) { 
     
-    console.log('ctor')
-    this.sservice.setTitle("Listado Alumnos");
+    
+    // console.log('ctor')
+    // this.sservice.yourVariableObserver("Listado Alumnos");
   }
 
   
 
   ngOnInit(): void {
-  console.log('Ng on init');
+  // console.log('Ng on init');
    this.alumnos$=this.alumnoService.getAlumnos();
-   console.log(this.alumnos$);
-   
+  //  console.log(this.alumnos$);
+   this.sservice.updateResultList("Listado Alumnos");
   }
   
   deleteStudent(alumno? : alumno){

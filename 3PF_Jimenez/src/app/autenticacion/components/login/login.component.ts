@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb:FormBuilder
     ) { 
-      console.log('ctor')
+      // console.log('ctor')
       this.sservice.setTitle("Login");
 
      
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log('is admin'+ this.formLogin.value.isAdmin);
+    // console.log('is admin'+ this.formLogin.value.isAdmin);
     this.sesionService.login(this.formLogin.value.user_name,
        this.formLogin.value.password, this.formLogin.value.isAdmin);
     this.router.navigate(['inicio']);

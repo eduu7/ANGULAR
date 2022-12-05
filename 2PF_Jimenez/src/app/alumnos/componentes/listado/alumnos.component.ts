@@ -46,7 +46,7 @@ export class AlumnosComponent implements OnInit {
 
     dialog.beforeClosed().subscribe(res => {
       if(res.skipAction==0){
-        console.log(res);
+        // console.log(res);
         this.alumnoService.eliminarAlumno(res.id);
      }
       

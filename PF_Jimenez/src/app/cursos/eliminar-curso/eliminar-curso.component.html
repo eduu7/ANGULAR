@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Eliminar Curso </h1>
+<div mat-dialog-content>
+  <p>Estas seguro de eliminar a {{curso_name}} ?</p>
+  
+</div>
+<form (ngSubmit)="deleteCurso()">
+  <div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button" (click)="closemodal()">Cancelar</button>
+    <button mat-button  type="submit" cdkFocusInitial mat-raised-button color="primary">Si</button>
+  </div>
+
+</form>

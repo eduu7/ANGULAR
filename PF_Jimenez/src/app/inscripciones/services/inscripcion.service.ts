@@ -1,21 +1,20 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, catchError, filter, map, Observable, Subject, throwError } from 'rxjs';
-import { Curso } from 'src/app/models/curso';
+import { Inscripcion } from 'src/app/models/inscripcion';
 import { environment } from 'src/environments/environment';
  
 
 @Injectable()
-export class CursoService{
+export class InscripcionService{
 
     constructor(private http:HttpClient){
 
     }
 
 
-    getCurso(id: number):Observable<Curso>{
-// console.log('Entro a get Curso'); 
-      return this.http.get<Curso>(`${environment.api}/curso/${id}`, {
+    getInscripcion(id: number):Observable<Inscripcion>{
+      return this.http.get<Inscripcion>(`${environment.api}/inscripciones/${id}`, {
         headers: new HttpHeaders({
           'content-type': 'application/json',
           'encoding': 'UTF-8'
@@ -27,8 +26,8 @@ export class CursoService{
     }
 
 
-  obtenerCursos(): Observable<Curso[]>{
-    return this.http.get<Curso[]>(`${environment.api}/curso`, {
+  obtenerInscripciones(): Observable<Inscripcion[]>{
+    return this.http.get<Inscripcion[]>(`${environment.api}/inscripciones`, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
         'encoding': 'UTF-8'
@@ -38,19 +37,10 @@ export class CursoService{
     )
   }
 
-  obtenerCurso(id: number): Observable<Curso>{
-    return this.http.get<Curso>(`${environment.api}/curso/${id}`, {
-      headers: new HttpHeaders({
-        'content-type': 'application/json',
-        'encoding': 'UTF-8'
-      })
-    }).pipe(
-      catchError(this.manejarError)
-    )
-  }
+ 
 
-  agregarCurso(curso: Curso): Observable<Curso>{
-    return this.http.post<Curso>(`${environment.api}/curso/`, curso
+  agregarInscripcion(curso: Inscripcion): Observable<Inscripcion>{
+    return this.http.post<Inscripcion>(`${environment.api}/inscripciones/`, curso
     , {
       headers: new HttpHeaders({
         'content-type': 'application/json',
@@ -60,14 +50,14 @@ export class CursoService{
       catchError(this.manejarError))
   }
 
-  editarCurso(curso: Curso){
-   return this.http.put<Curso>(`${environment.api}/curso/${curso.id}`, curso).pipe(
+  editarInscripcion(curso: Inscripcion){
+   return this.http.put<Inscripcion>(`${environment.api}/inscripciones/${curso.id}`, curso).pipe(
       catchError(this.manejarError)
     );
   }
 
-  eliminarCurso(id: number){
-   return this.http.delete<Curso>(`${environment.api}/curso/${id}`).pipe(
+  eliminarInscripcion(id: number){
+   return this.http.delete<Inscripcion>(`${environment.api}/inscripciones/${id}`).pipe(
       catchError(this.manejarError)
     )
   }

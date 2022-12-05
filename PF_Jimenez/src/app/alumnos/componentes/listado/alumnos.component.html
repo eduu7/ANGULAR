@@ -19,8 +19,8 @@
       <div *ngFor="let alumno of  alumnos$ | async" class="col-md-3">
         <mat-card class="card">
             <mat-card-header>
-                <mat-card-title>{{ alumno.name }}</mat-card-title>
-                <mat-card-subtitle>{{ alumno.last_name }}</mat-card-subtitle>
+                <mat-card-title>{{ alumno | completeName}}</mat-card-title>
+                <mat-card-subtitle>{{ alumno.birth_date | date:'short'}}</mat-card-subtitle>
             </mat-card-header>
         
               <img mat-card-image [src]="alumno.img_url" alt="coderhouse">

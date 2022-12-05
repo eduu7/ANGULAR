@@ -16,6 +16,12 @@ export const cursosCargados=createAction(
 props<{curso:Curso []}>()
 );
 
+export const cursoCargado=createAction(
+    '[Cursos] Curso Cargado',
+    props<{curso:Curso}>()
+);
+
+
 export const agregarCurso=createAction(
 '[Cursos] Agregar Curso',
     props<{curso:Curso}>()

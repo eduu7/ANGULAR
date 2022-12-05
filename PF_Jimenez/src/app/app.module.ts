@@ -26,19 +26,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
+import { InscripcionesModule } from './inscripciones/inscripciones.module';
 
  
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,   
-    GenderPipe,
-    // TheadersDirective,
-    CompleteNamePipe,
-    AddInscripcionComponent,
-    DeleteInscripcionComponent,
-    InicioComponent,
-    ListadoComponent,         
+    ToolbarComponent,
+    GenderPipe, 
   ],
   imports: [
     CommonModule,
@@ -48,6 +44,7 @@ import { StoreModule } from '@ngrx/store';
     AlumnosModule,
     AutenticacionModule,
     CursosModule,
+    InscripcionesModule,
     CoreModule,
     SharedModule,
     FontAwesomeModule,

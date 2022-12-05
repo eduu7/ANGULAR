@@ -5,12 +5,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { DeleteAlumnoComponent } from 'src/app/alumnos/componentes/delete-alumno/delete-alumno.component';
 import { Curso } from 'src/app/models/curso';
 import { Session } from 'src/app/models/session';
 import { usuario } from 'src/app/models/usuario';
 import { SharedService } from 'src/app/shared/shared.service';
 import { CursoService } from '../services/curso.service';
-import { cargarCursos, cursosCargados, loadCursosFailure } from '../state/cursos.actions';
+import { cargarCursos, cursosCargados, eliminarCurso, loadCursosFailure } from '../state/cursos.actions';
 import { CursosState } from '../state/cursos.reducer';
 import { selectCursos, selectCursosCargando, selectCursosState } from '../state/cursos.selectors';
 
@@ -26,13 +27,16 @@ export class ListadoComponent implements OnInit {
   cursoSeleccionado!: Curso;
   columnas: string[] = ['id', 'curso', 'maestro', 'dificultad', 'horas', 'Fecha Inicio', 'Fecha Fin','acciones'];
 
-  constructor(private sservice: SharedService,
+  constructor(
+    private DeleteDialog: MatDialog,
+    private sservice: SharedService,
+    private router: Router,
     private storeCursos: Store<CursosState>,
     private storeSesion: Store<Session>,
     private dialog: MatDialog
     ) {
-    this.sservice.setTitle("Listado Cursos");
- 
+    // this.sservice.setTitle("Listado Cursos");
+    //   console.log('listadoooooo');
    }
 
    @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -53,14 +57,31 @@ export class ListadoComponent implements OnInit {
     // })
   }
  
-  // eliminarCurso(id: number): void{
-  //   this.cursoService.eliminarCurso(id);
-  //   this.cursos$ = this.cursoService.obtenerCursos();
-  // }
 
-  // editarCurso(curso:Curso){
-  //   this.router.navigate(['cursos/editar', curso]);
-  // }
+  editarCurso(_id: number){
+    // console.log('Editar curso parametro: '+_id);
+    this.router.navigate(['cursos/editar'], { queryParams: { id: _id } });
+  }
+ 
+  deleteCurso(curso? : Curso){
+    let dialog = this.DeleteDialog.open(DeleteAlumnoComponent, {
+      width: '25%',
+      height: 'auto',
+      data: 
+      curso
+       
+    });
 
+    dialog.beforeClosed().subscribe(res => {
+      if(res.skipAction==0){
+        // console.log('Eliminar curso');
+        // console.log(res);
+        var obj= res as Curso;
+        this.storeCursos.dispatch(eliminarCurso({curso: obj}));
+        setTimeout(() => this.dataSource.paginator = this.paginator, 1000);
+     }
+      
+    })
+  }
 
 }

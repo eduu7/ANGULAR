@@ -34,19 +34,20 @@ export class AgregarCursoComponent implements OnInit {
 
   
 
-  agregarCurso(_curso: Curso){
+  agregarCurso(){
     // if(this.usuarioActivo){
       const curso: Curso = {
-        id: 0,
-        difficulty:_curso.difficulty,
-        endDate:_curso.endDate,
-        hours:_curso.hours,
+        id: Math.round(Math.random()*1000),
+        difficulty:this.formulario.value.dificultad,
+        endDate:this.formulario.value.fechaFin,
+        hours:this.formulario.value.horas,
         img_url:'',
-        name:_curso.name,
-        startDate:_curso.startDate,
-        teacher:_curso.teacher
+        name:this.formulario.value.nombre,
+        startDate:this.formulario.value.fechaInicio,
+        teacher:this.formulario.value.teacher
       };
       this.storeCursos.dispatch(agregarCurso({curso}));
+      this.router.navigate(['cursos/listado']);
     // }
   }
 

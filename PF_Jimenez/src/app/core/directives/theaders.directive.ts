@@ -13,7 +13,8 @@ export class TheadersDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("init directive")
+    // console.log("init directive")
     this.renderer.setStyle(this.elemento.nativeElement, 'font-size', '20px');
+    this.renderer.setStyle(this.elemento.nativeElement, 'font-weight', 'bold');
   }
 }

@@ -36,12 +36,12 @@ export class EditarAlumnoComponent implements OnInit, OnDestroy {
     private fb:FormBuilder
   ) { 
 
-    console.log("Editar component");
+    // console.log("Editar component");
   }
 
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe((parametros) => {
-      console.log(parametros);
+      // console.log(parametros);
       // this.id = parseInt(parametros.get('id') || '0');
 
       this._idEdit = parseInt(parametros.get('id')||'0');
@@ -74,7 +74,7 @@ export class EditarAlumnoComponent implements OnInit, OnDestroy {
       phone:this.formAlumno.value.telefono
     }
 
-    console.log(a)
+    // console.log(a)
     this.alumnoService.editarAlumno(a);
 
     this.router.navigate(['alumnos/listado'])

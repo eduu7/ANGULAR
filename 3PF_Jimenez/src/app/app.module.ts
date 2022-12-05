@@ -29,7 +29,7 @@ import { ListadoComponent } from './inscripciones/components/listado/listado.com
     AppComponent,
     SidebarComponent,   
     GenderPipe,
-    // TheadersDirective,
+    TheadersDirective,
     CompleteNamePipe,
     AddInscripcionComponent,
     DeleteInscripcionComponent,

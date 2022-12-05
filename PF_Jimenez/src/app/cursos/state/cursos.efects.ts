@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { createEffect,Actions,ofType } from "@ngrx/effects";
 import { concatMap, map } from "rxjs";
 import { Curso } from "src/app/models/curso";
-import { inscripcion } from "src/app/models/inscripcion";
 import { CursoService } from "../services/curso.service";
 import * as CursosActions from './cursos.actions';
 
@@ -30,6 +29,17 @@ agregarCurso$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(CursosActions.eliminarCurso),
       concatMap(({ curso }) => this.cursos.eliminarCurso(curso.id).pipe(
+        map((i: Curso) => CursosActions.cargarCursos())
+      ))
+    );
+  });
+
+
+  getCurso$ = createEffect(() => {
+    // console.log('Get efect, curso');
+    return this.actions$.pipe(
+      ofType(CursosActions.cursoCargado),
+      concatMap(({ curso }) => this.cursos.getCurso(curso.id).pipe(
         map((i: Curso) => CursosActions.cargarCursos())
       ))
     );

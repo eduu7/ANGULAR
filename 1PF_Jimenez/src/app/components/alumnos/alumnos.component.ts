@@ -46,8 +46,8 @@ export class AlumnosComponent implements OnInit, AfterViewInit {
 
     dialog.beforeClosed().subscribe(res => {
       if(res.skipAction==0){
-        console.log("Edit modal closed");
-        console.log(res);
+        // console.log("Edit modal closed");
+        // console.log(res);
        
         // console.log("object parsed")
         // console.log(objParsed);
@@ -94,7 +94,7 @@ export class AlumnosComponent implements OnInit, AfterViewInit {
 
     dialog.beforeClosed().subscribe(res => {
       if(res.skipAction==0){
-        console.log(res);
+        // console.log(res);
         let position = this.dataInicial.findIndex(persona => persona.id == res.id)
         this.dataInicial.splice(position, 1);
         this.AlumnosDataSource.data = this.dataInicial;

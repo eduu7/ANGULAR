@@ -36,12 +36,12 @@ export class EditarAlumnoComponent implements OnInit, OnDestroy {
     private fb:FormBuilder
   ) { 
 
-    console.log("Editar component");
+    // console.log("Editar component");
   }
 
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe((parametros) => {
-      console.log(parametros);
+      // console.log(parametros);
       // this.id = parseInt(parametros.get('id') || '0');
 
       this._idEdit = parseInt(parametros.get('id')||'0');
@@ -79,7 +79,7 @@ export class EditarAlumnoComponent implements OnInit, OnDestroy {
       img_url:'https://annemariesegal.files.wordpress.com/2017/04/adobestock_86346713-cropped-young-woman-in-suit.jpg?w=750'
     }
 
-    console.log(a)
+    // console.log(a)
     this.alumnoService.editarAlumno(a);
 
     this.router.navigate(['alumnos/listado'])

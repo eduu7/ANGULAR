@@ -45,21 +45,27 @@ export class AlumnoService {
       })
     }).pipe(
       catchError(this.manejarError)
-    ).subscribe(console.log);
+    ).subscribe(
+      // console.log
+      );
   }
 
 
   editarAlumno(alumno: alumno){
     this.http.put<alumno>(`${environment.api}/alumno/${alumno.id}`, alumno).pipe(
       catchError(this.manejarError)
-    ).subscribe(console.log);
+    ).subscribe(
+      // console.log
+      );
     // this._la$.next(ListaAlumnos);
   }
 
   eliminarAlumno(id: number){
     this.http.delete<alumno>(`${environment.api}/alumno/${id}`).pipe(
       catchError(this.manejarError)
-    ).subscribe(console.log);
+    ).subscribe(
+      // console.log
+      );
     alert("Registro eliminado"); 
     // this._la$.next(ListaAlumnos);
   }

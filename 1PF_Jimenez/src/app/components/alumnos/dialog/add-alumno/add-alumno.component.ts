@@ -42,13 +42,13 @@ export class AddAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.data.action==1){
-      console.log("Agregar");
-      console.log(this.data);
+      // console.log("Agregar");
+      // console.log(this.data);
       this._action=1;
     }
     if(this.data.action==2){
-      console.log("Editar");
-      console.log(this.data);
+      // console.log("Editar");
+      // console.log(this.data);
       this.formAlumno.controls['nombres'].setValue(this.data.name);
       this.formAlumno.controls['apellidos'].setValue(this.data.last_name);
       this.formAlumno.controls['correo'].setValue(this.data.email);
@@ -62,12 +62,12 @@ export class AddAlumnoComponent implements OnInit {
   }
 
   agregarAlumno(){
-     console.log("agregar Alunno");
+    //  console.log("agregar Alunno");
     var fechaN= this.formAlumno.value.fecha_nacimiento;
   
-    console.log(fechaN);
+    // console.log(fechaN);
     var dt= this.formatDate(new Date());
-    console.log(dt);
+    // console.log(dt);
     var fn= this.formatDate(fechaN);
     if(fn>=dt){
       this.fechaMayorIgualActual=true;

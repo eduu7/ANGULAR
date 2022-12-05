@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedService } from './shared.service';
+import { DirectivesModule } from '../Modules/directive.module';
+
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,7 @@ import { SharedService } from './shared.service';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   exports: [
     MaterialModule,

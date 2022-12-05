@@ -1,6 +1,6 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { SesionService } from './core/services/sesion.service';
 import { Session } from './models/session';
 import { SharedService } from './shared/shared.service';
@@ -9,16 +9,20 @@ import { SharedService } from './shared/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = '1PF_Jimenez';
   faBars=faBars;
-  $titulo!: Observable<any>;
+  // $titulo!: Observable<any>;
+  // // banners$: Subject<any[]> = new BehaviorSubject<any[]>([]);
+  // titulo!: string;
   sesion$!: Observable<Session>;
-  constructor(private renderer: Renderer2,private sshared: SharedService,
+  // sub!: Subscription;
+   
+  constructor(private renderer: Renderer2, 
     private sesionService: SesionService
     ){
-    // this.Title=sshared.title!;
-    // this.$titulo = sshared._title$;
+     
+      
     this.sesion$= this.sesionService.obtenerSesion();
     var sub =this.sesion$.subscribe((d)=>
     {
@@ -36,6 +40,7 @@ export class AppComponent {
     //   console.log(d);
     // });
   }
+ 
 
   toogleClass(){
      

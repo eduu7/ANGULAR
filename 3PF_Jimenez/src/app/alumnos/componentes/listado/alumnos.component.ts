@@ -26,16 +26,16 @@ export class AlumnosComponent implements OnInit {
     // private DeleteDialog: MatDialog
   ) { 
     
-    console.log('ctor')
+    // console.log('ctor')
     this.sservice.setTitle("Listado Alumnos");
   }
 
   
 
   ngOnInit(): void {
-  console.log('Ng on init');
+  // console.log('Ng on init');
    this.alumnos$=this.alumnoService.getAlumnos();
-   console.log(this.alumnos$);
+  //  console.log(this.alumnos$);
    
   }
   
@@ -50,7 +50,7 @@ export class AlumnosComponent implements OnInit {
 
     dialog.beforeClosed().subscribe(res => {
       if(res.skipAction==0){
-        console.log(res);
+        // console.log(res);
         this.alumnoService.eliminarAlumno(res.id);
         this.alumnos$=this.alumnoService.getAlumnos();
      }

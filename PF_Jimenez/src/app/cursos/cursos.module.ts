@@ -16,6 +16,9 @@ import { cursosFeatureKey, reducer } from './state/cursos.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CursosEffects } from './state/cursos.efects';
 import { CursoService } from './services/curso.service';
+import { TheadersDirective } from '../core/directives/theaders.directive';
+import { EliminarCursoComponent } from './eliminar-curso/eliminar-curso.component';
+import { DirectivesModule } from '../Modules/directive.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { CursoService } from './services/curso.service';
     EditarCursoComponent,
     ListadoComponent,
     InicioComponent,
+    EliminarCursoComponent,
     // ToolbarComponent
   ],
   imports: [
@@ -32,6 +36,7 @@ import { CursoService } from './services/curso.service';
     ReactiveFormsModule,
     SharedModule,
     RouterModule,
+    DirectivesModule,
     StoreModule.forFeature(cursosFeatureKey, reducer),
     EffectsModule.forFeature([CursosEffects])
   ],

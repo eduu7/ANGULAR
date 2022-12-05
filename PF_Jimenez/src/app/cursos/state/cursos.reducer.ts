@@ -9,6 +9,27 @@ export interface CursosState{
     cursos: Curso[]
 }
 
+export interface CursosStatev2{
+    cursos: Curso[]
+}
+
+
+export interface CursoState{
+    cargando:boolean,
+    curso:Curso
+}
+
+export const initialObject: CursoState={
+    cargando:false ,
+    curso: { id: 0,
+        name: '',
+        hours: 0,
+        img_url: '',
+        teacher: '',
+        difficulty: 0,
+        startDate: new Date,
+        endDate: new Date}
+}
 export const initialState: CursosState={
     cargando:false,
     cursos:[]
@@ -22,6 +43,7 @@ on(cursosActions.cargarCursos,(state)=>{
 on(cursosActions.cursosCargados, (state, {curso})=>{
     return {...state, cargando:false, cursos: curso}
 }),
+
 on(cursosActions.agregarCurso, (state,{curso})=>{
     return state
 }),
@@ -32,4 +54,12 @@ on(cursosActions.eliminarCurso, (state, {curso})=>{
     return state
 })
 );
+
+export const reducer2= createReducer(
+    initialObject,
+    on(cursosActions.cursoCargado, (state,{curso})=>{
+        return state
+    }),
+)
+
 

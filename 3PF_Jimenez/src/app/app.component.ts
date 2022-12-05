@@ -38,12 +38,12 @@ export class AppComponent {
   }
 
   toogleClass(){
-    console.log("asa");
+    // console.log("asa");
     var s=document.querySelector(".hamburger");
-    console.log(s);
+    // console.log(s);
     // s?.addEventListener("")
     var as= document.querySelector("body");
-    console.log(as);
+    // console.log(as);
     document.querySelector("body")?.classList.toggle("active");
     // this.renderer.addClass(document.body,"active");
   //   var hamburger = document.querySelector(".hamburger");

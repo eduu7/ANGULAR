@@ -15,6 +15,7 @@ import { AlumnoService } from './services/alumno.service';
 import { AlumnosComponent } from './componentes/listado/alumnos.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EditarAlumnoComponent } from './componentes/editar-alumno/editar-alumno.component';
+import { CompleteNamePipe } from '../pipes/complete-name.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditarAlumnoComponent } from './componentes/editar-alumno/editar-alumno
     AddAlumnoComponent,
     DeleteAlumnoComponent,
     InicioComponent,
-    EditarAlumnoComponent
+    EditarAlumnoComponent,
+    CompleteNamePipe
     // ToolbarComponent
   ],
   imports: [

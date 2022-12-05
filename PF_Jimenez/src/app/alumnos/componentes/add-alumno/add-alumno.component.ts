@@ -33,7 +33,7 @@ export class AddAlumnoComponent implements OnInit {
     private router: Router 
     // @Inject(MAT_DIALOG_DATA) public data?: any
   ) { 
-    console.log("cargado add alumno");
+    // console.log("cargado add alumno");
     // if(this.data.action==1){
     //   this.title='Agregar Alumno';
     // }
@@ -45,7 +45,7 @@ export class AddAlumnoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("cargado add alumno");
+    // console.log("cargado add alumno");
     // if(this.data.action==1){
     //   console.log("Agregar");
     //   console.log(this.data);
@@ -67,12 +67,12 @@ export class AddAlumnoComponent implements OnInit {
   }
 
   agregarAlumno(){
-     console.log("agregar Alunno");
+    //  console.log("agregar Alunno");
     var fechaN= this.formAlumno.value.fecha_nacimiento;
   
-    console.log(fechaN);
+    // console.log(fechaN);
     var dt= this.formatDate(new Date());
-    console.log(dt);
+    // console.log(dt);
     var fn= this.formatDate(fechaN);
     if(fn>=dt){
       this.fechaMayorIgualActual=true;
@@ -89,7 +89,7 @@ export class AddAlumnoComponent implements OnInit {
         gender:this.formAlumno.value.genero,
         img_url:'https://annemariesegal.files.wordpress.com/2017/04/adobestock_86346713-cropped-young-woman-in-suit.jpg?w=750'
       };
-      console.log(alumno);
+      // console.log(alumno);
       this.alumnoService.agregarAlumno(alumno);
       this.router.navigate(['alumnos/listado']);
      }

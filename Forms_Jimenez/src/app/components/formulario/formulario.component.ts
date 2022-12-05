@@ -29,9 +29,9 @@ export class FormularioComponent implements OnInit {
 
   agregarAlumno(){
     var fechaN= this.formAlumno.value.fecha_nacimiento;
-    console.log(fechaN);
+    // console.log(fechaN);
     var dt= this.formatDate(new Date());
-    console.log(dt);
+    // console.log(dt);
     if(fechaN>=dt){
       this.fechaMayorIgualActual=true;
     }
