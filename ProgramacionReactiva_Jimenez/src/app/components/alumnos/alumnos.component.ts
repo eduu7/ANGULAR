@@ -49,7 +49,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
           map((alumnos: alumno[]) => alumnos.filter((alumno: alumno) => alumno.name === 'Edu'))
     )
     .subscribe((alumno) => {
-      console.log('Desde el from: ', alumno);
+      // console.log('Desde el from: ', alumno);
     });
   }
 

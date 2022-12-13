@@ -61,6 +61,7 @@ export class CursoService{
   }
 
   editarCurso(curso: Curso){
+    // console.log(curso);
    return this.http.put<Curso>(`${environment.api}/curso/${curso.id}`, curso).pipe(
       catchError(this.manejarError)
     );

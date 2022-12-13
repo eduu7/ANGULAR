@@ -44,7 +44,7 @@ export class AgregarCursoComponent implements OnInit {
         img_url:'',
         name:this.formulario.value.nombre,
         startDate:this.formulario.value.fechaInicio,
-        teacher:this.formulario.value.teacher
+        teacher:this.formulario.value.maestro
       };
       this.storeCursos.dispatch(agregarCurso({curso}));
       this.router.navigate(['cursos/listado']);

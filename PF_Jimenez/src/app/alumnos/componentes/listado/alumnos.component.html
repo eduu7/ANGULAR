@@ -30,15 +30,21 @@
                 
             </mat-card-content>
 
+            <ng-container *ngIf="sesion$ | async as sesion">
+              <div *ngIf="sesion.user?.isAdmin">
             <mat-card-actions align="end">
               <button mat-icon-button color="primary" (click)="editarAlumno(alumno.id)" >
                   <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button color="warn" (click)="deleteStudent(alumno)" >
-                  <mat-icon>delete</mat-icon>
-              </button>
+             
+                  <button mat-icon-button color="warn" (click)="deleteStudent(alumno)" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                
+            
           </mat-card-actions>
-        
+        </div>
+        </ng-container>
             
         </mat-card>
         </div>

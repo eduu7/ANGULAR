@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AutenticacionModule } from './autenticacion/autenticacion-module';
 import { CommonModule } from '@angular/common';
-import { AddInscripcionComponent } from './inscripciones/components/add-inscripcion/add-inscripcion.component';
 import { DeleteInscripcionComponent } from './inscripciones/components/delete-inscripcion/delete-inscripcion.component';
 import { InicioComponent } from './inscripciones/components/inicio/inicio.component';
 import { ListadoComponent } from './inscripciones/components/listado/listado.component';

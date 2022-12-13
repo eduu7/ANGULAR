@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { DeleteAlumnoComponent } from 'src/app/alumnos/componentes/delete-alumno/delete-alumno.component';
+import { SesionService } from 'src/app/core/services/sesion.service';
 import { Curso } from 'src/app/models/curso';
 import { Session } from 'src/app/models/session';
 import { usuario } from 'src/app/models/usuario';
@@ -26,17 +27,19 @@ export class ListadoComponent implements OnInit {
   usuarioActivo?: usuario;
   cursoSeleccionado!: Curso;
   columnas: string[] = ['id', 'curso', 'maestro', 'dificultad', 'horas', 'Fecha Inicio', 'Fecha Fin','acciones'];
+  sesion$!: Observable<Session>;
 
   constructor(
     private DeleteDialog: MatDialog,
     private sservice: SharedService,
     private router: Router,
     private storeCursos: Store<CursosState>,
-    private storeSesion: Store<Session>,
+    private sesionS:SesionService,
     private dialog: MatDialog
     ) {
     // this.sservice.setTitle("Listado Cursos");
     //   console.log('listadoooooo');
+    this.sesion$= this.sesionS.obtenerSesion();
    }
 
    @ViewChild(MatPaginator) paginator!: MatPaginator;

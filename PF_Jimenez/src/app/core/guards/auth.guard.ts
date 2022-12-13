@@ -48,7 +48,17 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      return this.session.obtenerSesion().pipe(
+        map((sesion: Session) => {
+          if(sesion.active){
+            return true;
+          }else{
+            alert("No tiene permisos para acceder a este sitio");
+            this.router.navigate(['inicio']);
+            return false;
+          }
+        })
+      );
   }
   
 }

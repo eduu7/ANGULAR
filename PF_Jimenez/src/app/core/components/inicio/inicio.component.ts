@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Session } from 'src/app/models/session';
+import { SesionService } from '../../services/sesion.service';
 
 @Component({
   selector: 'app-inicio',
@@ -6,8 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
-  constructor() { }
+  sesion$!: Observable<Session>;
+  constructor(private sesionService: SesionService
+    ){
+     
+      
+    // this.sesion$= this.sesionService.obtenerSesion();
+    // var sub =this.sesion$.subscribe((d)=>
+    // {
+    //     if(!d.active){
+    //       this.toogleClass();
+    //       this.toogleClass();
+    //     }
+    // }
+    
+    // );
+  }
 
   ngOnInit(): void {
     this.toogleClass();

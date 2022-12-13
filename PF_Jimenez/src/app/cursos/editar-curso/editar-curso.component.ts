@@ -79,7 +79,7 @@ export class EditarCursoComponent implements OnInit {
      endDate: this.formulario.value.fechaFin,
      startDate: this.formulario.value.fechaInicio,
      hours: this.formulario.value.horas,
-     id:this.formulario.value.id,
+     id:this._idEdit,
      name:this.formulario.value.nombre,
      teacher:this.formulario.value.maestro,
      img_url:''

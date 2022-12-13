@@ -24,6 +24,7 @@ export class SesionService {
         isAdmin: _admin
       }
     }
+    // console.log("session: ");
     // console.log(sesion);
     this.sesionSubject.next(sesion);
   }

@@ -9,6 +9,8 @@ import { AlumnoService } from '../../services/alumno.service';
 import { DeleteAlumnoComponent } from '../delete-alumno/delete-alumno.component';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/shared.service';
+import { SesionService } from 'src/app/core/services/sesion.service';
+import { Session } from 'src/app/models/session';
  
 @Component({
   selector: 'app-alumnos',
@@ -16,8 +18,10 @@ import { SharedService } from 'src/app/shared/shared.service';
   styleUrls: ['./alumnos.component.css']
 })
 export class AlumnosComponent implements OnInit {
+  sesion$!: Observable<Session>;
   alumnos$!:Observable<alumno[]>
   constructor(
+    private sesionS: SesionService,
     private DeleteDialog: MatDialog,
     private alumnoService: AlumnoService,
     private sservice: SharedService,
@@ -26,7 +30,7 @@ export class AlumnosComponent implements OnInit {
     // private DeleteDialog: MatDialog
   ) { 
     
-    
+     this.sesion$= this.sesionS.obtenerSesion();
     // console.log('ctor')
     // this.sservice.yourVariableObserver("Listado Alumnos");
   }

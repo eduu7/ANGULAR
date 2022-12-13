@@ -6,19 +6,19 @@ import { MaterialModule } from '../Modules/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ListadoComponent } from './components/listado/listado.component';
-import { AddInscripcionComponent } from './components/add-inscripcion/add-inscripcion.component';
 import { DeleteInscripcionComponent } from './components/delete-inscripcion/delete-inscripcion.component';
 import { InscripcionesRoutingModule } from './inscripciones-routing.module';
 import { InscripcionService } from './services/inscripcion.service';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { DirectivesModule } from '../Modules/directive.module';
+import { AgregarInscripcionComponent } from './components/agregar-inscripcion/agregar-inscripcion.component';
 
 @NgModule({
   declarations: [
     InicioComponent,
     ListadoComponent,
-    AddInscripcionComponent,
     DeleteInscripcionComponent,
+    AgregarInscripcionComponent,
  
     // ToolbarComponent
   ],
@@ -26,10 +26,10 @@ import { DirectivesModule } from '../Modules/directive.module';
     CommonModule,
     MaterialModule,    
     InscripcionesRoutingModule,
+    RouterModule,
     ReactiveFormsModule,
     DirectivesModule,
-    SharedModule,
-    RouterModule
+    SharedModule
   ],
   providers: [
     InscripcionService
